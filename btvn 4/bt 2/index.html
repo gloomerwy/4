@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <button onclick="rickRoll()">Click me!</button>
+
+    <script>
+        function rickRoll() {
+            window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ"); // Open Rick Roll video in a new tab
+            displayLyrics(); // Call the function to display lyrics
+        }
+
+        function displayLyrics() {
+            var lyrics = [
+                "Never gonna give you up, never gonna let you down",
+                "Never gonna run around and desert you",
+                "Never gonna make you cry, never gonna say goodbye",
+                "Never gonna tell a lie and hurt you"
+                
+            ];
+
+            var index = 0;
+            function showAlert() {
+                if (index < lyrics.length) {
+                    alert(lyrics[index]);
+                    index++;
+                }
+            }
+
+            showAlert(); // Show the first alert
+
+            // Call showAlert() again when the previous alert is closed
+            var interval = setInterval(function() {
+                if (index === lyrics.length) {
+                    clearInterval(interval);
+                } else {
+                    showAlert();
+                }
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
